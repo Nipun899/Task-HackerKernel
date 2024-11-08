@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Task</title>
+  </head>
+  <body>
+    <h1>Add Task</h1>
+    <form action="/tasks/create" method="POST">
+      <label for="user">Select User</label>
+      <select id="user" name="user" required>
+        <% users.forEach(user => { %>
+        <option value="<%= user._id %>"
+          ><%= user.name %> (<%= user.email %>)</option
+        >
+        <% }) %> </select
+      ><br /><br />
+
+      <label for="taskName">Task Name</label>
+      <input type="text" id="taskName" name="taskName" required /><br /><br />
+
+      <label for="taskType">Task Type</label>
+      <select id="taskType" name="taskType" required>
+        <option value="pending">Pending</option>
+        <option value="done">Done</option> </select
+      ><br /><br />
+
+      <button type="submit">Add Task</button>
+    </form>
+  </body>
+</html>

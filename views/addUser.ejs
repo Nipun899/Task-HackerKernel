@@ -1,0 +1,40 @@
+<!-- addUser.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add User</title>
+    <script>
+      // Mobile number validation using JavaScript (Regular Expression)
+      function validateMobile() {
+        const mobile = document.getElementById("mobile").value;
+        const mobileRegex = /^[0-9]{10}$/; // 10 digits only
+        if (!mobile.match(mobileRegex)) {
+          alert("Please enter a valid 10-digit mobile number.");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Add User</h1>
+    <form
+      action="/users/createUser"
+      method="POST"
+      onsubmit="return validateMobile()"
+    >
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <label for="mobile">Mobile</label>
+      <input type="text" id="mobile" name="mobile" required /><br /><br />
+
+      <button type="submit">Add User</button>
+    </form>
+  </body>
+</html>
